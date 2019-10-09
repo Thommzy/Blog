@@ -1,5 +1,6 @@
 .topNav {
   background: black !important;
+  margin-bottom: 40px;
 }
 .logo {
   color: #fff !important;
@@ -14,4 +15,33 @@
 .signUpButton {
   border: 1px solid #ee4e54;
   color: #fff;
+}
+#footer {
+  background: #000;
+}
+.firstLine {
+  color: #fff;
+}
+.secondLine {
+  color: #fff;
+}
+.thirdLine {
+  color: #fff;
+}
+.lowerFooter {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: cursive;
+}
+.upperFooter {
+  margin-bottom: 20px;
+}
+.post-preview a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.post-preview a {
+  color: green;
 }
