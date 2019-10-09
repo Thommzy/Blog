@@ -1,0 +1,17 @@
+.topNav {
+  background: black !important;
+}
+.logo {
+  color: #fff !important;
+  font-family: cursive;
+  font-weight: 700;
+}
+.logInButton {
+  border: 1px solid #fff;
+  margin-right: 10px;
+  color: #fff;
+}
+.signUpButton {
+  border: 1px solid #ee4e54;
+  color: #fff;
+}
