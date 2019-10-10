@@ -18,6 +18,12 @@
 }
 #footer {
   background: #000;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 167px;
+  width: 100%;
+  overflow: hidden;
 }
 .firstLine {
   color: #fff;
