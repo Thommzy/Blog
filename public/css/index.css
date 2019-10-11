@@ -97,3 +97,6 @@ hr {
 .post-subtitle {
   font-size: 14px;
 }
+.dropdown-menu {
+  min-width: 15rem;
+}

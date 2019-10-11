@@ -89,7 +89,7 @@ $(function() {
   //SignUp Ajax Ends
 });
 
-// Admin Login Ajax Starts
+// User Login Ajax Starts
 $('#login').submit(e => {
   var $loginMain = $('#loginMain');
   var $loginGreen = $('#loginGreen');
@@ -129,26 +129,62 @@ $('#login').submit(e => {
         Login Successful
       </div>`);
       window.setTimeout(function() {
-        location.href = 'specific.html';
+        localStorage.setItem('presentEmail', userLoginEmail);
+        location.href = 'index.html';
       }, 2000);
     }
-    //var seeFailed = localStorage.getItem('failedKey');
-    // for (i = 0; i < e.length; i++) {
-    //   if (e[i].username === adminUserName && e[i].password === adminPassword) {
-    //     //alert('Login Passed');
-    //     localStorage.setItem('User', e[i].username);
-    //     localStorage.setItem('onlyAdminId', 45);
-    //     location.href = 'admincreate.html';
-    //   } else {
-    //     alert('admin');
-    //   }
-
-    //   console.log(e[i].username);
-    // }
-
-    // setInterval('window.location.reload()', 4000);
     console.log(e);
   });
 });
 
-//Admin Login Ends
+//User Login Ends
+
+// Navbar button Logic Check Starts
+
+const userCheck = localStorage.getItem('presentEmail');
+
+var $rightNavLoggedIn = $('.rightNav');
+
+if (userCheck) {
+  $rightNavLoggedIn.append(` <div class="dropdown">
+  <button
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Welcome, ${userCheck}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" id="logOut" href="#">Logout</a>
+  </div>
+</div>`);
+} else {
+  $rightNavLoggedIn.append(`  <button
+  formaction="userLogin.html"
+  class="btn logInButton"
+  type="submit"
+>
+  LogIn
+</button>
+<button
+  formaction="userSignUp.html"
+  class="btn signUpButton"
+  type="submit"
+>
+  SignUp
+</button>`);
+}
+
+// Navbar Button Logic Check Ends
+
+//Logout Logic Starts
+
+$('#logOut').click(function() {
+  window.location = 'userLogin.html';
+  localStorage.clear();
+});
+
+//Logout Logic Ends
