@@ -2,6 +2,7 @@ $(function() {
   var $postPreview = $('.post-preview');
   var $alert = $('#alertShit');
   var $success = $('#succesShit');
+
   $.ajax({
     type: 'GET',
     url: 'http://localhost:3000/postlists',
@@ -74,20 +75,80 @@ $(function() {
               $success.append(`<div class="alert alert-success" role="alert">
               Success!
             </div>`);
-              location.href = 'specific.html';
+              window.setTimeout(function() {
+                location.href = 'userLogin.html';
+              }, 2000);
+
               console.log(e);
             });
           }
         }
       }
     });
-
-    // .fail(e => {
-    //   if (username === '') {
-    //     alert('Fill in your Username');
-    //   }
-    // });
   });
-
   //SignUp Ajax Ends
 });
+
+// Admin Login Ajax Starts
+$('#login').submit(e => {
+  var $loginMain = $('#loginMain');
+  var $loginGreen = $('#loginGreen');
+  e.preventDefault();
+  let userLoginEmail = $('#emailLogin').val();
+  let userLoginPassword = $('#loginPassword').val();
+  $.ajax({
+    url: 'http://localhost:3000/users',
+    method: 'get'
+  }).done(e => {
+    var loginMailCheck = [];
+    var loginPasswordCheck = [];
+    for (let i = 0; i < e.length; i++) {
+      loginMailCheck.push(e[i].signUpEmail);
+      loginPasswordCheck.push(e[i].password);
+      console.log(e[i].signUpEmail);
+    }
+
+    localStorage.setItem('loginEmail!', JSON.stringify(loginMailCheck));
+    localStorage.setItem('loginPassword!', JSON.stringify(loginPasswordCheck));
+
+    let userEmailgottenFromLogin = localStorage.getItem('loginEmail!');
+    let userPasswordgottenFromLogin = localStorage.getItem('loginPassword!');
+
+    if (
+      userEmailgottenFromLogin.indexOf(userLoginEmail) === -1 ||
+      userPasswordgottenFromLogin.indexOf(userLoginPassword) === -1
+    ) {
+      $loginMain.append(`<div class="alert alert-danger" role="alert">
+      Email or Password Incorrect!
+    </div>`);
+      window.setTimeout(function() {
+        window.location.reload();
+      }, 2000);
+    } else {
+      $loginGreen.append(`<div class="alert alert-success" role="alert">
+        Login Successful
+      </div>`);
+      window.setTimeout(function() {
+        location.href = 'specific.html';
+      }, 2000);
+    }
+    //var seeFailed = localStorage.getItem('failedKey');
+    // for (i = 0; i < e.length; i++) {
+    //   if (e[i].username === adminUserName && e[i].password === adminPassword) {
+    //     //alert('Login Passed');
+    //     localStorage.setItem('User', e[i].username);
+    //     localStorage.setItem('onlyAdminId', 45);
+    //     location.href = 'admincreate.html';
+    //   } else {
+    //     alert('admin');
+    //   }
+
+    //   console.log(e[i].username);
+    // }
+
+    // setInterval('window.location.reload()', 4000);
+    console.log(e);
+  });
+});
+
+//Admin Login Ends
