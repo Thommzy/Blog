@@ -12,12 +12,20 @@
   </head>
   <body>
     <nav class="navbar navbar-light bg-light topNav">
-      <a class="navbar-brand logo">Blog</a>
+      <a href="index.html" class="navbar-brand logo">Blog</a>
       <form class="form-inline">
-        <button class="btn logInButton" type="submit">
+        <button
+          formaction="userLogin.html"
+          class="btn logInButton"
+          type="submit"
+        >
           LogIn
         </button>
-        <button class="btn signUpButton" type="submit">
+        <button
+          formaction="userSignUp.html"
+          class="btn signUpButton"
+          type="submit"
+        >
           SignUp
         </button>
       </form>
@@ -25,7 +33,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10">
-          <div class="post-preview">
+          <div class="post-preview"></div>
+
+          <!-- <div class="post-preview">
             <a href="#">
               <h2 class="post-title">
                 Failure is not an option
@@ -37,26 +47,10 @@
             </a>
             <p class="post-meta">
               Posted by
-              <a href="#">Start Bootstrap</a>
+              <a href="#">Admin</a>
             </p>
           </div>
-          <hr />
-          <div class="post-preview">
-            <a href="#">
-              <h2 class="post-title">
-                Failure is not an option
-              </h2>
-              <h3 class="post-subtitle">
-                Many say exploration is part of our destiny, but it’s actually
-                our duty to future generations.
-              </h3>
-            </a>
-            <p class="post-meta">
-              Posted by
-              <a href="#">Start Bootstrap</a>
-            </p>
-          </div>
-          <hr />
+          <hr /> -->
           <!-- Pager -->
         </div>
       </div>
@@ -86,4 +80,5 @@
       </div>
     </div>
   </body>
+  <script src="js/main.js"></script>
 </html>

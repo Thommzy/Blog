@@ -12,18 +12,24 @@
   margin-right: 10px;
   color: #fff;
 }
+
+.logInButton:hover {
+  border: 1px solid #fff;
+  margin-right: 10px;
+  color: #fff;
+  border-radius: 10px;
+}
 .signUpButton {
   border: 1px solid #ee4e54;
   color: #fff;
 }
+.signUpButton:hover {
+  border: 1px solid #ee4e54;
+  color: #fff;
+  border-radius: 10px;
+}
 #footer {
   background: #000;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 167px;
-  width: 100%;
-  overflow: hidden;
 }
 .firstLine {
   color: #fff;
@@ -87,4 +93,7 @@ hr {
   font-size: 30px;
   font-family: monospace;
   margin-top: 20px;
+}
+.post-subtitle {
+  font-size: 14px;
 }

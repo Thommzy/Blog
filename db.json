@@ -1,16 +1,50 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
   "comments": [
     {
       "id": 1,
       "body": "Tim comment",
       "postId": 1
+    }
+  ],
+  "postlists": [
+    {
+      "post_topic": "Andela Recruitllllllsd",
+      "post_content": "syugsnkdd",
+      "id": 1
+    },
+    {
+      "post_topic": "Hello AdMin",
+      "post_content": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
+      "id": 2
+    },
+    {
+      "post_topic": "Hello AdMin",
+      "post_content": "Cooler1",
+      "id": 3
+    },
+    {
+      "post_topic": "Hello AdMin",
+      "post_content": "Cooler1",
+      "id": 4
+    },
+    {
+      "post_topic": "Hello AdMin",
+      "post_content": "Cooler1",
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "username": "Timothy Tomiwa",
+      "signUpEmail": "timothyobeisun@gmail.com",
+      "password": "password",
+      "id": 2
+    },
+    {
+      "username": "Kunle",
+      "signUpEmail": "timotshyobeisun@gmail.com",
+      "password": "password",
+      "id": 3
     }
   ],
   "profile": {
