@@ -39,6 +39,20 @@
       "signUpEmail": "timothyobeisun@gmail.com",
       "password": "password",
       "id": 2
+    },
+    {
+      "username": "cooler",
+      "signUpEmail": "timothyobedisun@gmail.com",
+      "password": "password",
+      "id": 3
+    }
+  ],
+  "admin": [
+    {
+      "username": "admin",
+      "signUpEmail": "admin@gmail.com",
+      "password": "password",
+      "id": 1
     }
   ],
   "profile": {

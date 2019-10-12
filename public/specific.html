@@ -7,52 +7,20 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/index.css" />
     <script src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <title>Blog</title>
   </head>
   <body>
     <nav class="navbar navbar-light bg-light topNavSpec">
       <a href="index.html" class="navbar-brand logo">Blog</a>
-      <div class="dropdown">
-        <button
-          class="btn btn-secondary dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Welcome {{ User }}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
+      <form class="form-inline rightNav"></form>
     </nav>
     <div class="container-fluid spec">
       <div class="imgMain">
         <img src="img/blog_3.jpg" alt="alt_" />
       </div>
     </div>
-    <div class="container">
-      <h1 class="post_title">POST TITLE</h1>
-      <p>By Admin</p>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore sequi
-        cumque dolorem autem voluptatum, adipisci sit consectetur ullam!
-        Blanditiis eveniet ipsum a modi sapiente dicta suscipit illo ut
-        molestiae hic. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Distinctio, mollitia perferendis. Repellendus, ullam, quod at mollitia
-        eveniet consequatur nulla voluptatum asperiores fuga error nisi, nobis
-        explicabo quia! Corrupti, molestiae placeat. Lorem ipsum dolor sit amet
-        consectetur, adipisicing elit. Obcaecati, repellat accusantium tempore
-        laborum distinctio nulla corrupti officiis inventore libero neque
-        maiores laboriosam voluptatem dolore harum delectus incidunt, officia ex
-        possimus?
-      </p>
-    </div>
+    <div id="specMain"></div>
     <div class="container">
       <form class="comment_form">
         <div class="form-group">
@@ -107,4 +75,5 @@
       </div>
     </div>
   </body>
+  <script src="js/main.js"></script>
 </html>
