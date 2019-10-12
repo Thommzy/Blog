@@ -229,8 +229,8 @@ $('.hi').click(function() {
 
 // Admin Login Ajax Starts
 $('#adminLoginMain').submit(e => {
-  var $loginMain = $('#loginMain');
-  var $loginGreen = $('#loginGreen');
+  var $adminLoginMain = $('#loginMain');
+  var $adminLoginGreen = $('#loginGreen');
   e.preventDefault();
   let adminLoginEmail = $('#adminEmail').val();
   let adminLoginPassword = $('#adminPassword').val();
@@ -246,24 +246,29 @@ $('#adminLoginMain').submit(e => {
       console.log(e[i].signUpEmail);
     }
 
-    localStorage.setItem('loginEmail!', JSON.stringify(loginMailCheck));
-    localStorage.setItem('loginPassword!', JSON.stringify(loginPasswordCheck));
+    localStorage.setItem('adminLoginEmail!', JSON.stringify(loginMailCheck));
+    localStorage.setItem(
+      'adminLoginPassword!',
+      JSON.stringify(loginPasswordCheck)
+    );
 
-    let userEmailgottenFromLogin = localStorage.getItem('loginEmail!');
-    let userPasswordgottenFromLogin = localStorage.getItem('loginPassword!');
+    let adminEmailgottenFromLogin = localStorage.getItem('adminLoginEmail!');
+    let adminPasswordgottenFromLogin = localStorage.getItem(
+      'adminLoginPassword!'
+    );
 
     if (
-      userEmailgottenFromLogin.indexOf(adminLoginEmail) === -1 ||
-      userPasswordgottenFromLogin.indexOf(adminLoginPassword) === -1
+      adminEmailgottenFromLogin.indexOf(adminLoginEmail) === -1 ||
+      adminPasswordgottenFromLogin.indexOf(adminLoginPassword) === -1
     ) {
-      $loginMain.append(`<div class="alert alert-danger" role="alert">
+      $adminLoginMain.append(`<div class="alert alert-danger" role="alert">
      Login details incorrect
     </div>`);
       window.setTimeout(function() {
         window.location.reload();
       }, 2000);
     } else {
-      $loginGreen.append(`<div class="alert alert-success" role="alert">
+      $adminLoginGreen.append(`<div class="alert alert-success" role="alert">
         Login Successful
       </div>`);
       window.setTimeout(function() {
