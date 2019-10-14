@@ -89,8 +89,8 @@ $(function() {
           <a href="">Admin</a>
         </p> <div class="container">
         <div class="row">
-          <div class="col-sm">
-            <button type="button" class="btn btn-success">Edit</button>
+          <div class="col-sm ">
+            <button type="button" id="${data[i].id}" class="btn btn-success editbutton">Edit</button>
           </div>
           <div class="col-sm">    
             <button type="button" class="btn btn-danger">Delete</button>
@@ -100,16 +100,59 @@ $(function() {
           </div>
            `);
       }
+      // onClick Edit Action starts
+      $('.editbutton').click(function() {
+        //alert('Handler for .click() called.');
+        var editGs = $(this).attr('id');
+        localStorage.setItem('editId', editGs);
+        var editHs = localStorage.getItem('editId');
+        $.ajax({
+          type: 'GET',
+          url: `http://localhost:3000/postlists/${editHs}`,
+          success: function(data) {
+            console.log('success:', data);
+            localStorage.setItem('newTitle', data.post_topic);
+            localStorage.setItem('newContent', data.post_content);
+            location.href = 'edit.html';
+          }
+        });
+      });
+      // onClick Edit Action Ends
     }
   });
 
   //Admin Home Page Post View Ends
 
+  // sending the edited Data back to the server Starts
+
+  $('#adminEdit').submit(e => {
+    e.preventDefault();
+    let post_topic = $('#updateTitleVal').val();
+    let post_content = $('#updateContentVal').val();
+    const lul = localStorage.getItem('editId');
+    console.log(lul);
+
+    $.ajax({
+      url: `http://localhost:3000/postlists/${lul}`,
+      type: 'PATCH',
+      data: {
+        post_topic,
+        post_content
+      }
+    }).done(e => {
+      //alert('Yes');
+      // console.log(es);
+      location.href = 'admin.html';
+    });
+  });
+
+  // Sending The edited Data Back to the server Ends
+
   //Admin Create Post Starts
   $('#adminCreate').submit(e => {
     e.preventDefault();
     let post_topic = $('#postTitleVal').val();
-    let post_content = $('postContentVal').val();
+    let post_content = $('#postContentVal').val();
 
     $.ajax({
       url: 'http://localhost:3000/postlists',

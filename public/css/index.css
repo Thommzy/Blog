@@ -182,3 +182,9 @@ p.cpr {
 .createSubmitButton {
   margin-bottom: 30px;
 }
+input#updateTitleVal {
+  color: #000;
+}
+textarea#updateContentVal {
+  color: #000;
+}
