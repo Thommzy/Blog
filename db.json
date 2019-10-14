@@ -41,6 +41,17 @@
       "post_topic": "Hello Ad23Min",
       "post_content": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
       "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "post_topic": "Test Second",
+      "post_content": "ssddedcc",
+      "id": 10
     }
   ],
   "users": [

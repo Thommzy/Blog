@@ -10,7 +10,7 @@ $(function() {
     url: 'http://localhost:3000/postlists',
     success: function(data) {
       console.log('success:', data);
-      for (let i = 0; i < data.length; i++) {
+      for (let i = data.length - 1; i >= data.length - data.length; i--) {
         console.log(data[i].id);
         $postPreview.append(`<div class="">
         <a class="hi" id="${data[i].id}"  href="specific.html">
@@ -73,7 +73,7 @@ $(function() {
     url: 'http://localhost:3000/postlists',
     success: function(data) {
       console.log('success:', data);
-      for (let i = 0; i < data.length; i++) {
+      for (let i = data.length - 1; i >= data.length - data.length; i--) {
         console.log(data[i].id);
         $AdminPostPreview.append(`<div class="">
           <a class="hi" id="${data[i].id}"  href="specific.html">
@@ -104,6 +104,26 @@ $(function() {
   });
 
   //Admin Home Page Post View Ends
+
+  //Admin Create Post Starts
+  $('#adminCreate').submit(e => {
+    e.preventDefault();
+    let post_topic = $('#postTitleVal').val();
+    let post_content = $('postContentVal').val();
+
+    $.ajax({
+      url: 'http://localhost:3000/postlists',
+      method: 'POST',
+      data: {
+        post_topic,
+        post_content
+      }
+    }).done(e => {
+      window.location = 'admin.html';
+    });
+  });
+
+  //Admin Create Post Ends
 
   //SignUp Ajax Starts
   $('#register').submit(e => {
@@ -272,7 +292,7 @@ var logdeets = localStorage.getItem('presentEmail');
 var $navRightAdmin = $('.dropdown-menu');
 if (logdeets === 'admin@gmail.com') {
   $navRightAdmin.append(
-    ` <a class="dropdown-item" id="">Create Post</a>
+    ` <a class="dropdown-item" id="" href="create.html">Create Post</a>
     <a class="dropdown-item" id="logOut">Logout</a>
     `
   );
