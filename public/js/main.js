@@ -3,6 +3,8 @@ $(function() {
   var $alert = $('#alertShit');
   var $success = $('#succesShit');
 
+  //Home Page post View Starts
+
   $.ajax({
     type: 'GET',
     url: 'http://localhost:3000/postlists',
@@ -29,6 +31,10 @@ $(function() {
     }
   });
 
+  //Home Page Post View Ends
+
+  //Specific Post Starts
+
   $(document).on('click', '.hi', function(e) {
     var gs = $(this).attr('id');
     //  alert(`Hello + ${gs}`);
@@ -46,15 +52,58 @@ $(function() {
     success: function(data) {
       console.log('success:', data);
       $specMain.append(`<div class="container">
-      <h1 class="post_title">${data.post_topic}</h1>
-      <p>By Admin</p>
-      <p>
-        ${data.post_content}
-      </p>
-    </div>
-         `);
+          <h1 class="post_title">${data.post_topic}</h1>
+          <p>By Admin</p>
+          <p>
+            ${data.post_content}
+          </p>
+        </div>
+            `);
     }
   });
+
+  // Specific Post Ends
+
+  //Admin Home Page post View Starts
+
+  var $AdminPostPreview = $('.post-preview-post');
+
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:3000/postlists',
+    success: function(data) {
+      console.log('success:', data);
+      for (let i = 0; i < data.length; i++) {
+        console.log(data[i].id);
+        $AdminPostPreview.append(`<div class="">
+          <a class="hi" id="${data[i].id}"  href="specific.html">
+          <h2 class="post-title">
+           ${data[i].post_topic}
+          </h2>
+          <h3 class="post-subtitle">
+            ${data[i].post_content}
+          </h3>
+        </a>
+        <p class="post-meta">
+          Posted by
+          <a href="">Admin</a>
+        </p> <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <button type="button" class="btn btn-success">Edit</button>
+          </div>
+          <div class="col-sm">    
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div><hr />
+          </div>
+           `);
+      }
+    }
+  });
+
+  //Admin Home Page Post View Ends
 
   //SignUp Ajax Starts
   $('#register').submit(e => {
@@ -175,6 +224,14 @@ $('#login').submit(e => {
 const userCheck = localStorage.getItem('presentEmail');
 
 var $rightNavLoggedIn = $('.rightNav');
+var $logoLink = $('#logoLink');
+
+if (userCheck === 'admin@gmail.com') {
+  //alert('hi');
+  $logoLink.append(`<a href="admin.html" class="navbar-brand logo">Blog</a>`);
+} else {
+  $logoLink.append(`<a href="index.html" class="navbar-brand logo">Blog</a>`);
+}
 
 if (userCheck) {
   $rightNavLoggedIn.append(` <div class="dropdown">
@@ -188,9 +245,7 @@ if (userCheck) {
   >
     Welcome, ${userCheck}
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" id="logOut" href="#">Logout</a>
-  </div>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
 </div>`);
 } else {
   $rightNavLoggedIn.append(`  <button
@@ -211,21 +266,24 @@ if (userCheck) {
 
 // Navbar Button Logic Check Ends
 
-// Specific Post Function Starts
+//NavBar Dropdown Configuratin Starts
 
-// Specific post function Ends
+var logdeets = localStorage.getItem('presentEmail');
+var $navRightAdmin = $('.dropdown-menu');
+if (logdeets === 'admin@gmail.com') {
+  $navRightAdmin.append(
+    ` <a class="dropdown-item" id="">Create Post</a>
+    <a class="dropdown-item" id="logOut">Logout</a>
+    `
+  );
+} else {
+  $navRightAdmin.append(
+    ` <a class="dropdown-item" id="logOut">Logout</a>
+    `
+  );
+}
 
-//Logout Logic Starts
-
-$('#logOut').click(function() {
-  window.location = 'userLogin.html';
-  localStorage.clear();
-});
-
-//Logout Logic Ends
-$('.hi').click(function() {
-  alert('logouts');
-});
+//NavBar Configuration Ends
 
 // Admin Login Ajax Starts
 $('#adminLoginMain').submit(e => {
@@ -273,7 +331,7 @@ $('#adminLoginMain').submit(e => {
       </div>`);
       window.setTimeout(function() {
         localStorage.setItem('presentEmail', adminLoginEmail);
-        location.href = 'index.html';
+        location.href = 'admin.html';
       }, 2000);
     }
     console.log(e);
@@ -281,3 +339,18 @@ $('#adminLoginMain').submit(e => {
 });
 
 //Admin Login Ends
+
+//Logout Logic Starts
+
+$('#logOut').click(function() {
+  var logdeets = localStorage.getItem('presentEmail');
+  if (logdeets === 'admin@gmail.com') {
+    window.location = 'adminLogin.html';
+    localStorage.clear();
+  } else {
+    window.location = 'userLogin.html';
+    localStorage.clear();
+  }
+});
+
+//Logout Logic Ends

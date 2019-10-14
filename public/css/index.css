@@ -57,6 +57,14 @@
 .post-preview a {
   color: green;
 }
+.post-preview-post a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.post-preview-post a {
+  color: green;
+}
 .imgMain {
   width: 100%;
   height: 20% !important;
@@ -170,4 +178,7 @@ section .section-title {
 }
 p.cpr {
   color: #fff;
+}
+.createSubmitButton {
+  margin-bottom: 30px;
 }
