@@ -93,7 +93,7 @@ $(function() {
             <button type="button" id="${data[i].id}" class="btn btn-success editbutton">Edit</button>
           </div>
           <div class="col-sm">    
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" id="${data[i].id}" class="btn btn-danger deleteButton">Delete</button>
           </div>
         </div>
       </div><hr />
@@ -102,7 +102,6 @@ $(function() {
       }
       // onClick Edit Action starts
       $('.editbutton').click(function() {
-        //alert('Handler for .click() called.');
         var editGs = $(this).attr('id');
         localStorage.setItem('editId', editGs);
         var editHs = localStorage.getItem('editId');
@@ -118,6 +117,27 @@ $(function() {
         });
       });
       // onClick Edit Action Ends
+
+      // delete Action starts
+      $('.deleteButton').click(function() {
+        var $notifyPostDel = $('#notifyPostDel');
+        var editGs = $(this).attr('id');
+        localStorage.setItem('editId', editGs);
+        var editHs = localStorage.getItem('editId');
+        $.ajax({
+          type: 'delete',
+          url: `http://localhost:3000/postlists/${editHs}`,
+          success: function() {
+            $notifyPostDel.append(`<div class="alert alert-success" role="alert">
+            Post deleted successfully
+          </div>`);
+            window.setTimeout(function() {
+              location.href = 'admin.html';
+            }, 1000);
+          }
+        });
+      });
+      // delete Action Ends
     }
   });
 
