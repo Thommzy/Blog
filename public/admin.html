@@ -9,6 +9,16 @@
     <script src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <title>Blog | Admin</title>
+    <script>
+      $(document).ready(function() {
+        const userStatus = localStorage.getItem('presentEmail');
+        console.log(userStatus);
+        if (userStatus !== 'admin@gmail.com') {
+          alert('You are not Logged In');
+          window.location = 'adminLogin.html';
+        }
+      });
+    </script>
   </head>
   <body>
     <div id="page-container">
