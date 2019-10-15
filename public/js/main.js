@@ -109,6 +109,9 @@ $(function() {
           }
         }).done(k => {
           console.log(k);
+          window.setTimeout(function() {
+            window.location.reload();
+          }, 1000);
         });
       });
     } else {
@@ -133,6 +136,9 @@ $(function() {
           }
         }).done(k => {
           console.log(k);
+          window.setTimeout(function() {
+            window.location.reload();
+          }, 1000);
         });
       });
     }
