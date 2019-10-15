@@ -14,7 +14,6 @@
         const userStatus = localStorage.getItem('presentEmail');
         console.log(userStatus);
         if (userStatus !== 'admin@gmail.com') {
-          alert('You are not Logged In');
           window.location = 'adminLogin.html';
         }
       });

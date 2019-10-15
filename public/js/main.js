@@ -59,10 +59,85 @@ $(function() {
           </p>
         </div>
             `);
+
+      $.ajax({
+        url: `http://localhost:3000/comments?postId=${hs}`
+      }).done(function(e) {
+        console.log(e);
+        for (let i = 0; i < e.length; i++) {
+          let index = i;
+          var $commentSection = $('#commentSection');
+          $.ajax({
+            url: `http://localhost:3000/users/${e[index].userId}`
+          }).done(function(j) {
+            console.log(j);
+            $commentSection.append(`<h2 class="comment_name">${j.username}</h2>
+            <p class="comment_ content">${e[index].content}</p>
+            <hr />`);
+          });
+        }
+      });
     }
   });
 
   // Specific Post Ends
+
+  // post comments Starts
+  $('#comment_form').submit(e => {
+    e.preventDefault();
+    let Query = localStorage.getItem('presentEmail');
+
+    if (Query) {
+      $.ajax({
+        url: `http://localhost:3000/users/?signUpEmail=${Query}`,
+        method: 'get'
+      }).done(y => {
+        console.log(y);
+        console.log(y[0].id);
+
+        let userId = y[0].id;
+        let content = $('#commentContent').val();
+        let postId = localStorage.getItem('postId');
+
+        $.ajax({
+          url: `http://localhost:3000/comments?postId=${postId}`,
+          method: 'post',
+          data: {
+            userId,
+            postId,
+            content
+          }
+        }).done(k => {
+          console.log(k);
+        });
+      });
+    } else {
+      $.ajax({
+        url: `http://localhost:3000/users/?signUpEmail=${''}`,
+        method: 'get'
+      }).done(y => {
+        console.log(y);
+        console.log(y[0].id);
+
+        let userId = y[0].id;
+        let content = $('#commentContent').val();
+        let postId = localStorage.getItem('postId');
+
+        $.ajax({
+          url: `http://localhost:3000/comments?postId=${postId}`,
+          method: 'post',
+          data: {
+            userId,
+            postId,
+            content
+          }
+        }).done(k => {
+          console.log(k);
+        });
+      });
+    }
+  });
+  //post Comments Ends
 
   //Admin Home Page post View Starts
 
@@ -167,6 +242,13 @@ $(function() {
   });
 
   // Sending The edited Data Back to the server Ends
+
+  // // test comment starts
+  // $('#comment_form').submit(e => {
+  //   e.preventDefault();
+  //   alert('Yes');
+  // });
+  // //test coment ends
 
   //Admin Create Post Starts
   $('#adminCreate').submit(e => {
