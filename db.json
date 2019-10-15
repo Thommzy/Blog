@@ -24,11 +24,6 @@
       "post_topic": "HeyMan1",
       "post_content": "gfdfghjk",
       "id": 8
-    },
-    {
-      "post_topic": "HeyMan2",
-      "post_content": "ufghhjkl",
-      "id": 9
     }
   ],
   "users": [
@@ -49,6 +44,12 @@
       "signUpEmail": "tomiwaobeisun@gmail.com",
       "password": "password",
       "id": 3
+    },
+    {
+      "username": "John Ogu",
+      "signUpEmail": "johnogu@gmail.com",
+      "password": "password",
+      "id": 4
     }
   ],
   "admin": [
