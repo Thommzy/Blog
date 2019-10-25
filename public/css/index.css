@@ -188,3 +188,11 @@ input#updateTitleVal {
 textarea#updateContentVal {
   color: #000;
 }
+
+.adminloginFooterSet {
+  padding-bottom: 180px;
+}
+
+.userloginFooterSet {
+  padding-bottom: 100px;
+}
