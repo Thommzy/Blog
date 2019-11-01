@@ -11,14 +11,14 @@
       "id": 5
     },
     {
-      "post_topic": "Hello AdMin",
-      "post_content": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
-      "id": 6
+      "post_topic": "Hello Decagon",
+      "post_content": "Welcome to Decagon",
+      "id": 8
     },
     {
-      "post_topic": "Hello Ad29Min",
-      "post_content": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.  \n\n\n",
-      "id": 7
+      "post_topic": "title",
+      "post_content": "fgjguiguijb",
+      "id": 9
     }
   ],
   "users": [
@@ -45,6 +45,18 @@
       "signUpEmail": "johnogu@gmail.com",
       "password": "password",
       "id": 4
+    },
+    {
+      "username": "newman",
+      "signUpEmail": "newman@gmail.com",
+      "password": "oluwatomiwa12",
+      "id": 5
+    },
+    {
+      "username": "Timothy Tomiwa",
+      "signUpEmail": "example@gmail.com",
+      "password": "ronnie65",
+      "id": 6
     }
   ],
   "admin": [
@@ -75,34 +87,16 @@
       "content": "I am the new guy"
     },
     {
-      "id": 4,
-      "userId": 2,
-      "postId": 7,
-      "content": "I am the new guy"
-    },
-    {
-      "userId": 2,
-      "postId": 6,
-      "content": "I am the new guy",
-      "id": 5
-    },
-    {
-      "userId": "4",
-      "postId": "8",
-      "content": "Hello world",
-      "id": 6
-    },
-    {
-      "userId": "2",
-      "postId": "8",
-      "content": "Yay!",
-      "id": 7
+      "userId": "5",
+      "postId": "7",
+      "content": "new",
+      "id": 4
     },
     {
       "userId": "1",
-      "postId": "8",
-      "content": "Wawu",
-      "id": 8
+      "postId": "5",
+      "content": "sfdfsdfdsfds",
+      "id": 5
     }
   ]
 }
